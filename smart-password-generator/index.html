@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Smart Password Generator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="tool">
+    <header class="intro">
+      <span class="edition"><span aria-hidden="true"></span> PRIVATE BY DESIGN</span>
+      <h1>Smart Password<br>Generator<span>.</span></h1>
+      <p>Create a fresh password that fits the rules of any account.</p>
+    </header>
+    <section class="panel" aria-label="Password generator">
+      <label class="caption" for="password">YOUR PASSWORD</label>
+      <div class="result">
+        <textarea id="password" rows="2" readonly spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+        <button type="button" class="copy" id="copy" aria-label="Copy password" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+          Copy
+        </button>
+      </div>
+      <div class="length">
+        <div class="length-heading">
+          <label for="length">Password length</label>
+          <output id="length-value" for="length">20</output>
+        </div>
+        <input type="range" min="8" max="64" value="20" id="length">
+        <div class="bounds" aria-hidden="true"><span>8</span><span>64</span></div>
+      </div>
+      <fieldset>
+        <legend>Include characters</legend>
+        <div class="options">
+          <label><input type="checkbox" value="uppercase" checked> Uppercase <code>A–Z</code></label>
+          <label><input type="checkbox" value="lowercase" checked> Lowercase <code>a–z</code></label>
+          <label><input type="checkbox" value="numbers" checked> Numbers <code>0–9</code></label>
+          <label><input type="checkbox" value="symbols" checked> Symbols <code>!@#</code></label>
+        </div>
+      </fieldset>
+      <p id="error" role="status" class="error"></p>
+      <button type="button" id="generate" class="generate">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 5v5h-5m5 0a8 8 0 1 0 .2 3"/></svg>
+        Generate password
+      </button>
+    </section>
+    <footer>Passwords are generated in your browser. Nothing is sent or stored by this app.</footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-atomic="true"></div>
+</body>
+</html>
